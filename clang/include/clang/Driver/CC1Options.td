@@ -272,8 +272,10 @@ def coverage_version_EQ : Joined<["-"], "coverage-version=">,
   HelpText<"Four-byte version string for gcov files.">;
 def test_coverage : Flag<["-"], "test-coverage">,
   HelpText<"Do not generate coverage files or remove coverage changes from IR">;
-def dump_coverage_mapping : Flag<["-"], "dump-coverage-mapping">,
+def coverage_mapping_dump : Flag<["-"], "coverage-mapping-dump">,
   HelpText<"Dump the coverage mapping records, for testing">;
+def dump_coverage_mapping : Flag<["-"], "dump-coverage-mapping">,
+  Alias<coverage_mapping_dump>;
 def fuse_register_sized_bitfield_access: Flag<["-"], "fuse-register-sized-bitfield-access">,
   HelpText<"Use register sized accesses to bit-fields, when possible.">;
 def relaxed_aliasing : Flag<["-"], "relaxed-aliasing">,
@@ -559,12 +561,16 @@ let Group = Action_Group in {
 
 def Eonly : Flag<["-"], "Eonly">,
   HelpText<"Just run preprocessor, no output (for timings)">;
-def dump_raw_tokens : Flag<["-"], "dump-raw-tokens">,
+def raw_tokens_dump : Flag<["-"], "raw-tokens-dump">,
   HelpText<"Lex file in raw mode and dump raw tokens">;
+def dump_raw_tokens : Flag<["-"], "dump-raw-tokens">,
+  Alias<raw_tokens_dump>;
 def analyze : Flag<["-"], "analyze">,
   HelpText<"Run static analysis engine">;
-def dump_tokens : Flag<["-"], "dump-tokens">,
+def tokens_dump : Flag<["-"], "tokens-dump">,
   HelpText<"Run preprocessor, dump internal rep of tokens">;
+def dump_tokens : Flag<["-"], "dump-tokens">,
+  Alias<tokens_dump>;
 def init_only : Flag<["-"], "init-only">,
   HelpText<"Only execute frontend initialization">;
 def fixit : Flag<["-"], "fixit">,
@@ -726,8 +732,10 @@ def fno_validate_pch : Flag<["-"], "fno-validate-pch">,
   HelpText<"Disable validation of precompiled headers">;
 def fallow_pch_with_errors : Flag<["-"], "fallow-pch-with-compiler-errors">,
   HelpText<"Accept a PCH file that was created with compiler errors">;
-def dump_deserialized_pch_decls : Flag<["-"], "dump-deserialized-decls">,
+def deserialized_pch_decls_dump : Flag<["-"], "deserialized-decls-dump">,
   HelpText<"Dump declarations that are deserialized from PCH, for testing">;
+def dump_deserialized_pch_decls : Flag<["-"], "dump-deserialized-decls">,
+  Alias<deserialized_pch_decls_dump>;
 def error_on_deserialized_pch_decl : Separate<["-"], "error-on-deserialized-decl">,
   HelpText<"Emit error if a specific declaration is deserialized from PCH, for testing">;
 def error_on_deserialized_pch_decl_EQ : Joined<["-"], "error-on-deserialized-decl=">,
